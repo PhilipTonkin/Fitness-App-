@@ -1,17 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trainer Profiles</title>
-</head>
-<body>
-    <h1>Trainer Profiles</h1>
-    <ul>
-        {% for trainer in trainers %}
-            <li>{{ trainer.name }} - {{ trainer.bio }}</li>
-        {% endfor %}
-    </ul>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% include 'header.html' %}
+<h1>Meet Our Trainers</h1>
+<div class="trainer-list">
+    {% for trainer in trainers %}
+        <div class="trainer-card">
+            <img src="{{ url_for('static', filename='images/' ~ trainer.image) }}" alt="{{ trainer.name }}" class="trainer-image">
+            <h2>{{ trainer.name }}</h2>
+            <p>{{ trainer.specialty }}</p>
+            <p>{{ trainer.bio }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% include 'footer.html' %}
+
+
+
+
+
+
+

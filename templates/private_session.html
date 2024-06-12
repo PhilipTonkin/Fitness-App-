@@ -1,12 +1,6 @@
 {% include 'header.html' %}
-<h1>Booking</h1>
+<h1>Book a Private Session with {{ trainer_name }}</h1>
 <form method="POST">
-    <label for="class">Select a class:</label>
-    <select name="class" id="class">
-        {% for class in classes %}
-            <option value="{{ class.name }}">{{ class.name }} with {{ class.instructor }}</option>
-        {% endfor %}
-    </select>
     <label for="date">Select a date:</label>
     <input type="date" name="date" id="date" required>
     <label for="time">Select a time:</label>
@@ -14,5 +8,7 @@
     <button type="submit" class="btn">Book</button>
 </form>
 {% include 'footer.html' %}
+
+
 
 

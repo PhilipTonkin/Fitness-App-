@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Schedule</title>
-</head>
-<body>
-    <h1>Class Schedule</h1>
-    <ul>
-        {% for class in classes %}
-            <li>{{ class.name }} at {{ class.time }} with {{ class.trainer }}</li>
-        {% endfor %}
-    </ul>
-    <a href="/">Back to Home</a>
-</body>
-</html>
+{% include 'header.html' %}
+<h1>Class Schedule</h1>
+<div class="class-list">
+    {% for class in classes %}
+        <div class="class-card">
+            <img src="{{ url_for('static', filename='images/' ~ class.image) }}" alt="{{ class.name }}" class="class-image">
+            <h2>{{ class.name }}</h2>
+            <p><strong>Instructor:</strong> {{ class.instructor }}</p>
+            {% for day, time in class.schedule %}
+                <p><strong>{{ day }}:</strong> {{ time }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% include 'footer.html' %}
+
+
+
+
+
+
+
+
